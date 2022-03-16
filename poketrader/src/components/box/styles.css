@@ -1,0 +1,43 @@
+.box {
+    background-color:  #19CACA;
+    border-radius: 10px;
+    width: 400px;
+    min-height: 500px;
+    font-weight: bold;
+    color: #f0f0f0;
+    justify-content: auto;
+}
+
+.paragraph {
+    margin: 10px;
+}
+.select {
+    display: inline;
+    margin: 10px;
+}
+.sprites {
+    display: grid;
+    grid-template-columns: 200px 200px;
+}
+
+.poke-sprite {
+    width: 125px;
+    justify-self: center;
+}
+
+.p-name {
+    display: flex;
+    flex-direction: flex;
+    color: #f0f0f0;
+    font-weight: bold;
+    justify-content: space-between;
+}
+
+.p-button {
+    height: 20px;
+    width: 20px;
+    border-radius: 5px;
+    background-color: #EE1515;
+    align-self: center;
+    margin-right: 0px;
+}
