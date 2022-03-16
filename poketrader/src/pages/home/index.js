@@ -1,7 +1,7 @@
 import Header from "../../components/header/index"
 import Box from "../../components/box/index"
 import "./styles.css"
-import {  useEffect, useLayoutEffect, useState } from "react";
+import {   useEffect, useState } from "react";
 
 
 function Home() {
@@ -25,26 +25,31 @@ function Home() {
 
   // Localstorage
 
-  const [tradeLog, setTradeLog] = useState([]);
-  const [tradeLog2, setTradeLog2] = useState([]);
-   
+  const tradeLog =[];
+  const tradeLog2 =[];
 
-  function Trade() {
-    const giverPoke = JSON.stringify(nameList.toString());
-    setTradeLog((prevState) => [...prevState, giverPoke]);
-    const receiverPoke = JSON.stringify(nameList2.toString());
-    setTradeLog2((prevState)=> [...prevState, receiverPoke]);   
-
+  useEffect(() => {
     localStorage.setItem('Giver', tradeLog);
     localStorage.setItem('Receiver', tradeLog2);
+  }, []  )
+
+  function Trade() {
+
+    // Save giverList on localstorage
+    const giverStart = localStorage.getItem('Giver');
+    const giverPoke = JSON.stringify(nameList.toString());
+    const giverLog  = [giverStart, giverPoke];
+    
+    // Save receiveList on localStorage
+    const receiverStart = localStorage.getItem('Receiver');
+    const receiverPoke = JSON.stringify(nameList2.toString());
+    const receiverLog = [receiverStart, receiverPoke];  
+    
+    localStorage.setItem('Giver', giverLog);
+    localStorage.setItem('Receiver', receiverLog);
   }
 
-  useEffect (() => {
 
-    console.log(tradeLog);
-    console.log(tradeLog2);
-
-  }, [tradeLog, tradeLog2]);
 
   return (
     <div className="Home">
@@ -86,7 +91,6 @@ function Home() {
             </div>
             <Box className="receiver" baseExp={baseExpR} list={list2} setList={setList2} setNameList={setNameList2}/>
         </div>
-        {tradeLog}
     </div>
   );
 }
