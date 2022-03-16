@@ -64,3 +64,9 @@
     align-items:center;
     text-align: center;
 }
+.trainer {
+    text-align: center;
+    color: #19CACA;
+    font-weight: bold;
+    font-size: larger;
+}

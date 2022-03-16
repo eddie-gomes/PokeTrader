@@ -1,7 +1,7 @@
 import Header from "../../components/header/index"
 import Box from "../../components/box/index"
 import "./styles.css"
-import {   useEffect, useState } from "react";
+import {    useState } from "react";
 
 
 function Home() {
@@ -25,37 +25,47 @@ function Home() {
 
   // Localstorage
 
-  const tradeLog =[];
-  const tradeLog2 =[];
+  // const tradeLog =[];
+  // const tradeLog2 =[];
 
-  useEffect(() => {
-    localStorage.setItem('Giver', tradeLog);
-    localStorage.setItem('Receiver', tradeLog2);
-  }, []  )
+  // useEffect(() => {
+  //   sessionStorage.setItem('Giver', tradeLog);
+  //   sessionStorage.setItem('Receiver', tradeLog2);
+  // }, []  )
 
   function Trade() {
 
     // Save giverList on localstorage
-    const giverStart = localStorage.getItem('Giver');
+    const giverStart = sessionStorage.getItem('Giver');
     const giverPoke = JSON.stringify(nameList.toString());
-    const giverLog  = [giverStart, giverPoke];
-    
-    // Save receiveList on localStorage
-    const receiverStart = localStorage.getItem('Receiver');
+
+    const str1 = '[' + giverPoke;
+    const giverLog  = [giverStart, str1];
+    // Save receiveList on sessionStorage
+
+
+    const receiverStart = sessionStorage.getItem('Receiver');
     const receiverPoke = JSON.stringify(nameList2.toString());
-    const receiverLog = [receiverStart, receiverPoke];  
+    const str2 = '[' + receiverPoke;
+    const receiverLog = [receiverStart, str2];  
     
-    localStorage.setItem('Giver', giverLog);
-    localStorage.setItem('Receiver', receiverLog);
+    sessionStorage.setItem('Giver', giverLog);
+    sessionStorage.setItem('Receiver', receiverLog);
   }
 
+  function RefreshPage() {
+    window.location.reload(false);
+  }
 
 
   return (
     <div className="Home">
         <Header/>
         <div className="h-box">
+          <div className="trainer">
+            <p>Treinador 1</p>
             <Box className="giver" baseExp={baseExpG} list={list} setList={setList} setNameList={setNameList}/>
+          </div>
             <div className="buttons">
 {/* This logic enable show specific text box */}
               {expGiver===0 || expReceiver===0 ? (
@@ -74,6 +84,9 @@ function Home() {
                   disabled={(expGiver===0 || expReceiver===0)}
                   onClick={()=> {
                     Trade();
+                    alert("Troca efetuada com sucesso!");
+                    RefreshPage();
+                    
                   }}
                   >
                     Trocar
@@ -89,7 +102,10 @@ function Home() {
                 ):null
                 }
             </div>
+            <div className="trainer">
+                <p>Treinador 2</p>
             <Box className="receiver" baseExp={baseExpR} list={list2} setList={setList2} setNameList={setNameList2}/>
+            </div>
         </div>
     </div>
   );

@@ -1,0 +1,28 @@
+.box {
+    background-color:  #19CACA;
+    border-radius: 10px;
+    width: 400px;
+    min-height: 500px;
+    max-height: 600px;
+    font-weight: bold;
+    color: #f0f0f0;
+    justify-content: auto;
+    overflow-y: scroll;
+    scroll-behavior: smooth;
+}
+
+
+.a-box {
+    display: flex;
+    flex: row;
+    justify-content: space-around;
+    align-items: center;
+    margin: 5%;
+}
+
+.trainer-box {
+    text-align: center;
+    color: #19CACA;
+    font-weight: bold;
+    font-size: larger;
+}
