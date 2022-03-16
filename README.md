@@ -3,7 +3,7 @@ Este site é uma calculadora de trocas de Pokémon. Ele é capaz de simular uma 
 
 O critério que define uma troca como justa ou injusta é a diferença da Experiência Base Total de cada lado envolvido na troca (caso a diferença seja >= 50, a troca é considerada injusta).
 
-O site pode ser acessado clicando [aqui]() ou acessando.
+O site pode ser acessado clicando [aqui](https://poketrader-eddie.herokuapp.com/trocas) ou acessando https://poketrader-eddie.herokuapp.com/trocas .
 
 ## Executando este projeto localmente
 
